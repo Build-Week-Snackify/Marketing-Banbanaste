@@ -10,9 +10,6 @@
     div {
       width: 400px;
       .flex();
-      span {
-        font-family: @bodyFont;
-      }
       a {
         text-decoration: none;
         padding: 3px 15px;
@@ -26,17 +23,35 @@
           opacity: 0.459;
         }
       }
-      a:nth-child(4) {
+      a:nth-child(3) {
         background-color: @orangeBkg;
         color: #fff;
-        &:nth-child(4):hover {
+        border-radius: 50px;
+        &:hover {
           opacity: 1;
           color: #fff;
           box-shadow: @shadow;
         }
       }
+      span {
+        font-size: 2rem;
+        .transition(0.35s ease-in-out);
+        &:hover {
+          cursor: pointer;
+          opacity: 0.459;
+        }
+      }
+      span.off {
+        font-size: 2rem;
+        opacity: 0.7;
+        .transition(0.35s ease-in-out);
+        &:hover {
+          cursor: pointer;
+          opacity: 1;
+        }
+      }
     }
-    @media @width2 {
+    @media @width3 {
       flex-direction: column;
     }
   }
@@ -68,7 +83,7 @@ header {
       font-size: 1.8rem;
       padding: 5px 40px;
       width: max-content;
-      border-radius: 5px;
+      border-radius: 50px;
       color: @orangeBkg;
       background-color: #fff;
       .transition(0.35s ease-in-out);
@@ -100,6 +115,7 @@ header {
 /* info section w/ cards */
 .bkDark {
   background-color: @greenBkg;
+  background: linear-gradient(-40deg, #00a650c7 0%, #66ec87 63%, #66ec87 100%);
   padding: 100px 0 150px;
   z-index: -100;
 }

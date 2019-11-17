@@ -9,17 +9,14 @@ class LikeButton extends React.Component {
   }
 
   likeClick() {
-    this.setState({ liked: true });
-
-    document.querySelector("#like_button_container").style.color = "blue";
+    this.setState(prevState => {
+      alert("thank you fot the like");
+      return { liked: !prevState.liked };
+    });
   }
 
   render() {
-    if (this.state.liked) {
-      return "thanks for liking";
-    }
-
-    return e("a", { onClick: () => this.likeClick() }, "Like");
+    return e("span", { onClick: () => this.likeClick() }, " ❤️ ");
   }
 }
 
