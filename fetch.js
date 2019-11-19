@@ -10,7 +10,7 @@ class LikeButton extends React.Component {
 
   componentDidMount() {
     axios
-      .post("https://snackify7.herokuapp.com/auth/login/employee", {
+      .post("https://snackify7.herokuapp.com/auth/login/organization", {
         username: "username",
         password: "password"
       })
