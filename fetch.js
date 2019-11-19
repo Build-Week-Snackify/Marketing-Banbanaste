@@ -1,4 +1,4 @@
-"use strict";
+("use strict");
 
 const e = React.createElement;
 
@@ -6,6 +6,20 @@ class LikeButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { liked: false };
+  }
+
+  componentDidMount() {
+    axios
+      .post("https://snackify7.herokuapp.com/auth/login/employee", {
+        username: "username",
+        password: "password"
+      })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   likeClick() {
