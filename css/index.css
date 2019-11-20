@@ -374,6 +374,9 @@ header div div:hover {
   border-radius: 5px;
   perspective: 1000px;
 }
+.cards .card-row .card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
 .cards .card-row .card .flip-card-inner {
   position: relative;
   width: 100%;
@@ -381,9 +384,6 @@ header div div:hover {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-}
-.cards .card-row .card .flip-card-inner:hover {
-  transform: rotateY(180deg);
 }
 .cards .card-row .card .flip-card-inner .flip-card-front {
   position: absolute;
