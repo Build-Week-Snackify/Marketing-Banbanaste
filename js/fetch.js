@@ -9,30 +9,27 @@ class LikeButton extends React.Component {
   }
 
   componentDidMount() {
-    axios
+    let axiosPostPromise = axios
       .post("https://snackify7.herokuapp.com/auth/login/organization", {
         username: "username",
         password: "password"
       })
       .then(function(response) {
-        let token = response.data.token;
-        console.log(token);
-        return token;
-      })
-      .then(token => {
-        console.log(token);
-        fetch("https://snackify7.herokuapp.com/snacks", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            Authorization: `Bearer ${token}`
-          }
-        });
+        console.log(response);
+        return response.data.token;
       })
       .catch(function(error) {
         console.log(error);
       });
+
+    Promise.all([axiosPostPromise]).then(token => {
+      console.log(token);
+      this.setState({ token });
+      console.log(this.state);
+    });
+
+    /* this.setState(token);
+    console.log(this.state); */
   }
 
   likeClick() {
